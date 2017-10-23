@@ -1,29 +1,34 @@
+package ru.lesson.lessons;
 /**
  * Created by Генка on 20.10.2017.
  */
-public class Animal implements Pet {
 
-    private String name;
+public class Cat extends Animal {
+    String name;
 
-    public Animal(String name) {
+
+    public Cat(String name) {
+        super(name);
         this.name = name;
+
     }
 
-    @Override
+
     public void makeSound() {
-        System.out.println(String.format("%s say: %s", this.name, "beep"));
+        System.out.printf("Meu %s", this.name);
     }
 
-    @Override
+
     public String getName() {
         return this.name;
     }
 
-    @Override
+
     public void setName(String name) {
         this.name = name;
     }
 
+    public void catchMouse() {
 
-//
+    }
 }

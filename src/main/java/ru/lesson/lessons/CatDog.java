@@ -1,3 +1,4 @@
+package ru.lesson.lessons;
 /**
  * Created by Генка on 20.10.2017.
  */
@@ -12,13 +13,13 @@ public class CatDog implements Pet {
     }
 
 
-    @Override
+
     public void makeSound() {
         this.cat.makeSound();
         this.dog.makeSound();
     }
 
-    @Override
+
     public String getName() {
         return String.format("%s%s", this.cat.getName(), this.dog.getName());
     }

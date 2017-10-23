@@ -1,3 +1,5 @@
+package ru.lesson.lessons;
+
 /**
  * Created by Генка on 20.10.2017.
  */
@@ -9,8 +11,25 @@ public class Clinic {
         this.clients = new Client[size];
     }
 
-    public void addClient(final int position, final Client client) {
-        this.clients[position] = client;
+    public void showDataBase(){
+        for (Client client : this.clients) {
+            if (client != null)
+            System.out.println("Client " + client.getId() + " has " + client.getPet().getClass().getName() + " " +
+            client.getPet().getName());
+        }
+
+    }
+
+    public void addClient(final int position, final Client newClient) {
+        for (Client client : this.clients) {
+            if (client != null && client.getId().equals(newClient.getId()) &&
+                    client.getPet().getName().equals(newClient.getPet().getName()) &&
+                    client.getPet().getClass() == newClient.getPet().getClass()) {
+                System.out.println("Такой клиент c таким питомцем уже зарегестрированы");
+            }
+        }
+
+        this.clients[position] = newClient;
     }
 
     // метод поиска клиента по имени питомца
@@ -26,6 +45,7 @@ public class Clinic {
             count = 0;                                          // обнуляем счетчик для записи совпадений в массив
             for (Client client : this.clients) {                // в цикле записываем в массив совпадения
                 if (client != null && client.getPet().getName().equals(petName)) {
+                    System.out.println("Pet " + client.getPet().getName() + "belongs " + client.getId());
                     foundedClients[count] = client;
                     ++count;
                 }
@@ -51,6 +71,7 @@ public class Clinic {
             for (Client client : this.clients) {                // в цикле записываем в массив совпадения
                 if (client != null && client.getId().equals(clientId)) {
                     foundedPets[count] = client.getPet();
+                    System.out.println("Client" + client.getId() + " has a pet " + client.getPet().getName());
                     ++count;
                 }
             }
@@ -70,7 +91,7 @@ public class Clinic {
                 client.getPet().setName(newPetName);
             }
         }
-        if (count==0) System.out.println("Клиент не найден.");
+        if (count == 0) System.out.println("Клиент не найден.");
     }
 
     //метод изменения имени клиента. Поиск по имени питомца
@@ -82,7 +103,7 @@ public class Clinic {
                 ++count;
             }
         }
-        if (count==0) System.out.println("Питомец не найден.");
+        if (count == 0) System.out.println("Питомец не найден.");
     }
-
 }
+

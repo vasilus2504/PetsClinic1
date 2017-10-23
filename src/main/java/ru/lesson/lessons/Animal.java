@@ -1,19 +1,19 @@
+package ru.lesson.lessons;
+
 /**
  * Created by Генка on 20.10.2017.
  */
-public class Cat extends Animal {
-    String name;
+public class Animal implements Pet {
 
+    private String name;
 
-    public Cat(String name) {
-        super(name);
+    public Animal(String name) {
         this.name = name;
-
     }
 
 
     public void makeSound() {
-        System.out.printf("Meu %s", this.name);
+        System.out.println(String.format("%s say: %s", this.name, "beep"));
     }
 
 
@@ -26,7 +26,6 @@ public class Cat extends Animal {
         this.name = name;
     }
 
-    public void catchMouse() {
 
-    }
+//
 }
