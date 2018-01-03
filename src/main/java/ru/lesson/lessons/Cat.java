@@ -19,9 +19,9 @@ public class Cat extends Animal {
     }
 
 
-    public String getName() {
-        return this.name;
-    }
+//    public String getName() {
+//        return this.name;
+//    }
 
 
     public void setName(String name) {
